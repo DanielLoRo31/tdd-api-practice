@@ -1,9 +1,9 @@
-const express = require("express");
+import express from 'express';
 
-const { json, urlencoded } = require("body-parser");
-const morgan = require("morgan");
-const cors = require("cors");
-const GreetBuilder = require('./GreetBuilder')
+import { json, urlencoded } from "body-parser";
+import morgan from "morgan";
+import cors from "cors";
+import GreetBuilder from './GreetBuilder';
 
 const app = express();
 
@@ -22,4 +22,8 @@ app.post("/greet/:name", (req, res) => {
   res.status(200).json({greeting})
 });
 
-module.exports = app;
+app.get("/", (req, res) => {
+  res.send("Well done!");
+});
+
+export default app;

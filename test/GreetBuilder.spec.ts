@@ -1,5 +1,5 @@
-const { expect } = require("expect");
-const GreetBuilder = require("../src/GreetBuilder");
+import { expect } from "expect";
+import GreetBuilder from "../src/GreetBuilder";
 
 describe("GreetBuilder class test", () => {
   const validName = "Juan";

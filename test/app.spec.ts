@@ -1,6 +1,6 @@
-const { expect } = require("expect");
-const request = require("supertest");
-const app = require("../src/app");
+import { expect } from "expect";
+import request from "supertest";
+import app from "../src/app";
 
 describe("app test", () => {
   it("should respond 200 OK when greeting a person", async () => {
