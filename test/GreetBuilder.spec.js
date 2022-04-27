@@ -1,7 +1,24 @@
-describe('GreetBuilder class test', () => {
-  it('should greet a person', async () => {});
+const { expect } = require("expect");
+const GreetBuilder = require("../src/GreetBuilder");
 
-  it('should throw NameInvalidException if name is "Jorge"', async () => {});
+describe("GreetBuilder class test", () => {
+  const validName = "Juan";
 
-  it('should thrown NameIsUndefinedException if no name provided', async () => {});
+  it("should greet a person", async () => {
+    const greetingBuilder = new GreetBuilder(validName);
+    const greeting = greetingBuilder.build();
+
+    expect(greeting).toBe(`Hello ${validName}!`);
+  });
+
+  it('should throw NameInvalidException if name is "Daniel"', async () => {
+    const greetingBuilder = new GreetBuilder('Daniel');
+    expect(greetingBuilder.build).toThrow('NameInvalidException');
+
+  });
+
+  it("should thrown NameIsUndefinedException if no name provided", async () => {
+    const greetingBuilder = new GreetBuilder();
+    expect(greetingBuilder.build).toThrow('NameIsUndefinedException');
+  });
 });
