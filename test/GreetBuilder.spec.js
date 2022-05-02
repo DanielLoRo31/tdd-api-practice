@@ -13,12 +13,12 @@ describe("GreetBuilder class test", () => {
 
   it('should throw NameInvalidException if name is "Daniel"', async () => {
     const greetingBuilder = new GreetBuilder('Daniel');
-    expect(greetingBuilder.build).toThrow('NameInvalidException');
+    expect(greetingBuilder.build.bind(greetingBuilder)).toThrow('NameInvalidException');
 
   });
 
   it("should thrown NameIsUndefinedException if no name provided", async () => {
     const greetingBuilder = new GreetBuilder();
-    expect(greetingBuilder.build).toThrow('NameIsUndefinedException');
+    expect(greetingBuilder.build.bind(greetingBuilder)).toThrow('NameIsUndefinedException');
   });
 });

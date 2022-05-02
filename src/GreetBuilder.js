@@ -1,15 +1,12 @@
 class GreetBuilder {
   constructor(name) {
     this.name = name;
+    this._throwIfNameInvalid.bind(this)
+    this._throwIfNameUndefined.bind(this)
+    this.build.bind(this)
   }
-
-  build = () => {
-    
-    this._throwIfNameUndefined();
-    this._throwIfNameInvalid();
-    
-    return `Hello ${this.name}!`;
-  }
+  
+  
 
   _throwIfNameInvalid = () => {
     if (this.name === "Daniel") {
@@ -22,6 +19,15 @@ class GreetBuilder {
       throw new Error("NameIsUndefinedException");
     }
   }
+
+  build() {
+    
+    this._throwIfNameUndefined();
+    this._throwIfNameInvalid();
+    
+    return `Hello ${this.name}!`;
+  }
+  
 }
 
 module.exports = GreetBuilder;
